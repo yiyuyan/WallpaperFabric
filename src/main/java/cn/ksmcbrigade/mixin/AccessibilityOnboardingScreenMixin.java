@@ -26,12 +26,7 @@ public class AccessibilityOnboardingScreenMixin {
     @Redirect(method = "render",at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/RotatingCubeMapRenderer;render(FF)V"))
     private void render(RotatingCubeMapRenderer instance, float delta, float alpha) throws Exception {
         if(Config.SPEC.isLoaded() && Config.ENABLED.get() && Config.check()){
-            if(Config.TITLE_SCREEN_ENABLED.get()){
-                WallpaperRenderer.render(this.drawContext);
-            }
-            else{
-                instance.render(delta,alpha);
-            }
+            WallpaperRenderer.render(this.drawContext);
         }
     }
 }
