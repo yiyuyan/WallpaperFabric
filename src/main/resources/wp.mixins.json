@@ -1,0 +1,19 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "cn.ksmcbrigade.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "fix.PngInfoMixin"
+  ],
+  "client": [
+    "AccessibilityOnboardingScreenMixin",
+    "CreateWorldScreenMixin",
+    "ScreenMixin",
+    "TitleScreenMixin",
+    "WinScreenMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
