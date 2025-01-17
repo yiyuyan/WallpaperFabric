@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(CreateWorldScreen.class)
 public class CreateWorldScreenMixin {
-    @Inject(method = "renderDarkening",at = @At("HEAD"),cancellable = true)
+    @Inject(method = "renderBackgroundTexture",at = @At("HEAD"),cancellable = true)
     private void render(DrawContext DrawContext, CallbackInfo ci) throws Exception {
         if(Config.SPEC.isLoaded() && Config.ENABLED.get() && Config.check()){
             WallpaperRenderer.render(DrawContext);

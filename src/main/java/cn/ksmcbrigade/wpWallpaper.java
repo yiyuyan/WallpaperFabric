@@ -1,9 +1,9 @@
 package cn.ksmcbrigade;
 
 import com.mojang.logging.LogUtils;
-import fuzs.forgeconfigapiport.fabric.impl.core.NeoForgeConfigRegistryImpl;
+import fuzs.forgeconfigapiport.impl.config.ForgeConfigRegistryImpl;
 import net.fabricmc.api.ClientModInitializer;
-import net.neoforged.fml.config.ModConfig;
+import net.minecraftforge.fml.config.ModConfig;
 import org.slf4j.Logger;
 
 public class wpWallpaper implements ClientModInitializer {
@@ -13,7 +13,7 @@ public class wpWallpaper implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        NeoForgeConfigRegistryImpl.INSTANCE.register("wp",ModConfig.Type.CLIENT,Config.SPEC);
+        ForgeConfigRegistryImpl.INSTANCE.register("wp", ModConfig.Type.CLIENT,Config.SPEC);
         LOGGER.info("Wallpaper mod loaded.");
     }
 }

@@ -12,18 +12,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(Screen.class)
 public class ScreenMixin {
-    @Inject(method = "renderPanoramaBackground",at = @At("HEAD"),cancellable = true)
-    private void render(DrawContext DrawContext, float partialTick, CallbackInfo ci) throws Exception {
+    @Inject(method = "renderBackgroundTexture",at = @At("HEAD"),cancellable = true)
+    private void render(DrawContext context, CallbackInfo ci) throws Exception {
         if(Config.SPEC.isLoaded() && Config.ENABLED.get() && Config.check()){
             if(((Screen)((Object)this)) instanceof CreditsScreen && !Config.WIN_SCREEN_ENABLED.get()) return;
-            WallpaperRenderer.render(DrawContext);
-            ci.cancel();
-        }
-    }
-
-    @Inject(method = "applyBlur",at = @At("HEAD"),cancellable = true)
-    private void render(float partialTick, CallbackInfo ci){
-        if(Config.SPEC.isLoaded() && Config.ENABLED.get() && Config.check() && !Config.BLUR_ENABLED.get()){
+            WallpaperRenderer.render(context);
             ci.cancel();
         }
     }

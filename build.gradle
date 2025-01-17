@@ -7,7 +7,7 @@ version = project.mod_version
 group = project.maven_group
 
 base {
-    archivesName = project.archives_base_name
+    archivesName = project.archives_base_name+'-1.20.1f'
 }
 
 
@@ -30,7 +30,7 @@ dependencies {
 
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    modImplementation "maven.modrinth:forge-config-api-port:v21.0.4-1.21-Fabric"
+    modImplementation "maven.modrinth:forge-config-api-port:v8.0.0-1.20.1-Fabric"
 }
 
 processResources {
